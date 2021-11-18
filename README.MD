@@ -10,7 +10,7 @@
 ### ***Description:***
 This is the first real program I've written for the world. <br>
 Hello World! <br>
-This is a basic copy of the CrackerBarrel chess we all played before Covid-19. It will be set up to accept player input from the same PC through mouse input, alternating players after each turn is complete.
+This is a basic copy of the CrackerBarrel checkers we all played before Covid-19. It will be set up to accept player input from the same PC through mouse input, alternating players after each turn is complete.
 
 ### ***Technologies Used:***
 1. JavaScript
