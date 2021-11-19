@@ -38,11 +38,14 @@
   width: 200px;
 }
 .resetBoardBox {
-  background-color: green
+  background-color: green;
+  display: flex;
+  justify-content: center;
 } 
-/* .restartButton {
-
-} */
+.currentTurnBox {
+  display: flex;
+  justify-content: left;
+}
 #a8,#c8,#e8,#g8, 
 #b7,#d7,#f7,#h7,
 #a6,#c6,#e6,#g6, 

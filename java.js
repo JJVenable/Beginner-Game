@@ -1,5 +1,5 @@
 //
-let player = 'p1';
+let player = 'RED';
 // tell me who is playing
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
@@ -26,7 +26,7 @@ document
   });
 // Change Player
 function changePlayer() {
-  player = player === 'p1' ? 'p2' : 'p1';
+  player = player === 'RED' ? 'BLACK' : 'RED';
   document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 }
 
@@ -37,10 +37,47 @@ document
     clickableTile.addEventListener('click', whenTileClicked)
   );
 
-// CLICK FUNCTION
+// CLICK FUNCTION when tile clicked
 //select square, select other square, delete first square,
 // put element into second.
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
-  clickedTile.innerHTML = 'x';
+  switch (player) {
+    case 'RED':
+      // IN HERE CHECK IF FULL, EMPTY IT, CHANGE MESSAGE
+      clickedTile.innerHTML = 'R';
+      break;
+    case 'BLACK':
+      clickedTile.innerHTML = 'B';
+      break;
+  }
 }
+
+// CLICK FUNCTION when tile clicked
+//select square, select other square, delete first square,
+// put element into second.
+// function whenTileClicked(clickedTileEvent) {
+//   const clickedTile = clickedTileEvent.target;
+//   switch (player) {
+//     case 'RED':
+//       // IN HERE CHECK IF FULL, EMPTY IT, CHANGE MESSAGE TO WHERE TO MOVE?>
+//       switch case clickedTile.innerHTML = '':{
+//         clickedTile.innerHTML = 'R';
+//         break;
+//       case clickedTile.innerHTML = 'R':
+//         clickedTile.innerHTML = '';
+//         break;
+//       default:
+//         alert("something went wrong1");
+//       }
+//     case 'BLACK':
+//       case clickedTile.innerHTML = '': {
+//         clickedTile.innerHTML = 'B';
+//         break;
+//       case clickedTile.innerHTML = 'B'
+//         clickedTile.innerHTML = '';
+//         break;
+//       default:
+//         alert("something went wrong2")
+//   }
+// }
