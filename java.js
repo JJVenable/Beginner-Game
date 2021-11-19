@@ -4,7 +4,7 @@ let player = 'p1';
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 
-// Restart Game Button *Add starting Pieces
+// Restart Game Button
 document.getElementById('restartButton').addEventListener('click', function () {
   // document.getElementByClass("innerTile").innerHTML = '';
   document
@@ -30,15 +30,16 @@ function changePlayer() {
   document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 }
 
-// event listener
+// click listener for playble tiles
 document
-  .querySelectorAll('.innerTile')
-  .forEach((innerTile) => innerTile.addEventListener('click', whenTileClicked));
+  .querySelectorAll('.clickableTile')
+  .forEach((clickableTile) =>
+    clickableTile.addEventListener('click', whenTileClicked)
+  );
 
-// when tile Clicked
+// CLICK FUNCTION
 //select square, select other square, delete first square,
 // put element into second.
-
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
   clickedTile.innerHTML = 'x';
