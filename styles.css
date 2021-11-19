@@ -17,14 +17,14 @@
 .innerTile {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: blue;
   width: 40px;
   height: 40px; 
   margin: 5px;
 }
 
-
-.gameInfoBox {
+.gameInfoBox, .headerInfoBox{
   display:flex;
   position: 0 auto;
   justify-content: center;
@@ -35,7 +35,6 @@
 }
 .scoreBoardBox {
   display:flex;
-  background-color: blueviolet;
   width: 200px;
 }
 .resetBoardBox {
@@ -64,6 +63,6 @@
 #b2,#d2,#f2,#h2,
 #a1,#c1,#e1,#g1
 {
-  background-color: black;
+  background-color:goldenrod;
 }
 

@@ -1,21 +1,35 @@
 //
-// clear the board
+let player = 'p1';
+
+// Restart Game Button
 document.getElementById('restartButton').addEventListener('click', function () {
   // document.getElementByClass("innerTile").innerHTML = '';
-  alert('button was successfully clicked.');
+  document
+    .querySelectorAll('.innerTile')
+    .forEach((innerTile) => (innerTile.innerHTML = ''));
 });
 
-// tile click- change to be for one clicked
-// document.querySelectorAll('.innerTile').forEach((tile) => {
-//   tile.addEventListener('click', (whatever) => {
-//     // alert('tile was clicked');
-//     document.getElementById('a8').innerHTML = 'X';
-//   });
-// });
+// Change Current Player Button
+document
+  .getElementById('playerTurnButton')
+  .addEventListener('click', function () {
+    changePlayer();
+  });
+// Change Player
+function changePlayer(player) {
+  alert('change text!');
+  if (player === 'p1') player = 'p2';
+  else if (player === 'p2');
+  player = 'p1';
+}
+
+// event listener
 document
   .querySelectorAll('.innerTile')
   .forEach((innerTile) => innerTile.addEventListener('click', whenTileClicked));
 
-function whenTileClicked() {
-  alert('tile clicked!');
+// when tile Clicked
+function whenTileClicked(clickedTileEvent) {
+  const clickedTile = clickedTileEvent.target;
+  clickedTile.innerHTML = 'x';
 }
