@@ -1,5 +1,7 @@
 //
 let player = 'p1';
+const currentPlayerTurn = () => `It's ${player}'s turn.`;
+document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 
 // Restart Game Button
 document.getElementById('restartButton').addEventListener('click', function () {
@@ -16,11 +18,9 @@ document
     changePlayer();
   });
 // Change Player
-function changePlayer(player) {
-  alert('change text!');
-  if (player === 'p1') player = 'p2';
-  else if (player === 'p2');
-  player = 'p1';
+function changePlayer() {
+  player = player === 'p1' ? 'p2' : 'p1';
+  document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 }
 
 // event listener
