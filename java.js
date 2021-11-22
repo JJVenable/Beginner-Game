@@ -8,20 +8,20 @@ const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 
 // // Restart Game Button// broken @ merge
-// document.getElementById('restartButton').addEventListener('click', function () {
-//   // document.getElementByClass("innerTile").innerHTML = '';
-//   document
-//     .querySelectorAll('.innerTile')
-//     .forEach((innerTile) => (innerTile.innerHTML = ''));
-//   document
-//     .querySelectorAll('.redStarterTile')
-//     .forEach((redStarterTile) => (redStarterTile.innerHTML = 'R'));
-//   document
-//     .querySelectorAll('.blackStarterTile')
-//     .forEach((blackStarterTile) => (blackStarterTile.innerHTML = 'B'));
-// });
+document.getElementById('restartButton').addEventListener('click', function () {
+  // document.getElementByClass("innerTile").innerHTML = '';
+  document
+    .querySelectorAll('.innerTile')
+    .forEach((innerTile) => (innerTile.innerHTML = ''));
+  let testStarter = document.elementFromPoint(288.5, 312 & 328, 272);
+  testStarter.innerHTML = 'Work?';
+  document
+    .querySelectorAll('.blackStarterTile')
+    .forEach((blackStarterTile) => (blackStarterTile.innerHTML = 'B'));
+});
 ///===== from playground ==
 
+// construct TILE
 class Tile {
   constructor(tile, coords) {
     this.tile = tile;
@@ -29,7 +29,7 @@ class Tile {
   }
 }
 
-/// got this to work by moving script
+///
 // needed for makeTheBoard
 const placeNewTileDown = (className) => {
   let newTile = document.createElement('div');
@@ -93,6 +93,7 @@ const makeTheBoard = () => {
 // RUN IT ALL
 makeTheBoard();
 ///== from playground ==
+
 // Change Current Player Button
 document
   .getElementById('playerTurnButton')
@@ -113,46 +114,39 @@ document
   );
 
 // CLICK FUNCTION when tile clicked
-//select square, select other square, delete first square,
-// put element into second.
+// save for breaking
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
   switch (player) {
     case 'RED':
-      // IN HERE CHECK IF FULL, EMPTY IT, CHANGE MESSAGE
       clickedTile.innerHTML = 'R';
+      console.log(clickedTile.getBoundingClientRect());
       break;
     case 'BLACK':
       clickedTile.innerHTML = 'B';
+      console.log(clickedTile.getBoundingClientRect());
       break;
   }
 }
 
-// CLICK FUNCTION when tile clicked
-//select square, select other square, delete first square,
-// put element into second.
-// function whenTileClicked(clickedTileEvent) {
-//   const clickedTile = clickedTileEvent.target;
-//   switch (player) {
-//     case 'RED':
-//       // IN HERE CHECK IF FULL, EMPTY IT, CHANGE MESSAGE TO WHERE TO MOVE?>
-//       switch case clickedTile.innerHTML = '':{
-//         clickedTile.innerHTML = 'R';
-//         break;
-//       case clickedTile.innerHTML = 'R':
-//         clickedTile.innerHTML = '';
-//         break;
-//       default:
-//         alert("something went wrong1");
-//       }
-//     case 'BLACK':
-//       case clickedTile.innerHTML = '': {
-//         clickedTile.innerHTML = 'B';
-//         break;
-//       case clickedTile.innerHTML = 'B'
-//         clickedTile.innerHTML = '';
-//         break;
-//       default:
-//         alert("something went wrong2")
-//   }
+//  FUNCTION TEST Zone
+// this is the bottom right most tile
+// {
+//   "x": 288.5,
+//   "y": 312,
+//   "width": 40,
+//   "height": 40,
+//   "top": 312,
+//   "right": 328.5,
+//   "bottom": 352,
+//   "left": 288.5
 // }
+
+// console.log(document.elementFromPoint(288.5, 312));
+
+// function redStarters() {
+//   let testStarter = document.elementFromPoint(288.5, 312);
+//   testStarter.id = 'redStarterTile';
+//   testStarter.innerHTML = 'StartS';
+// }
+// redStarters();
