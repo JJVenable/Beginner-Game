@@ -1,28 +1,32 @@
-.playerTiles {
-  /* position: absolute;
-  right: 50%;
-  left: 50%; */
+#game-board {
   display: grid;
-  
-  grid-gap: 5px;
-  background-color:gray;
-  width: 385px;
-  height: 385px;
-  grid-template-columns: 43px 43px 43px 43px 43px 43px 43px 43px;
-  grid-template-rows: 43px 43px 43px 43px 43px 43px 43px 43px; 
-  padding: 10px;
-  margin: 0 auto;
-}
-
+  grid-template-columns: repeat(8, 40px);
+  grid-template-rows: repeat(8, 40px);
+  direction: ltr;
+  justify-content: center;
+  height: 320px;
+  width: 320px;
+  border-style: solid;
+  border-color: black;
+  margin: auto
+  }
 .innerTile {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: blue;
   width: 40px;
   height: 40px; 
-  margin: 5px;
+} 
+  
+.dark {
+  background-color: burlywood;
 }
+.light {
+  background-color: lightblue;
+}
+
+
+/* ===== untouched below === */
 
 .gameInfoBox, .headerInfoBox{
   display:flex;
@@ -46,26 +50,3 @@
   display: flex;
   justify-content: left;
 }
-#a8,#c8,#e8,#g8, 
-#b7,#d7,#f7,#h7,
-#a6,#c6,#e6,#g6, 
-#b5,#d5,#f5,#h5,
-#a4,#c4,#e4,#g4, 
-#b3,#d3,#f3,#h3,
-#a2,#c2,#e2,#g2, 
-#b1,#d1,#f1,#h1{
-  background-color: white
-}
-
-#b8,#d8,#f8,#h8,
-#a7,#c7,#e7,#g7,
-#b6,#d6,#f6,#h6,
-#a5,#c5,#e5,#g5, 
-#b4,#d4,#f4,#h4,
-#a3,#c3,#e3,#g3, 
-#b2,#d2,#f2,#h2,
-#a1,#c1,#e1,#g1
-{
-  background-color:goldenrod;
-}
-
