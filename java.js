@@ -2,7 +2,7 @@
 let player = 'RED';
 const gameBoard = document.getElementById('game-board');
 const boardTiles = [];
-const jsPhoneBook = [];
+let jsPhoneBook = [];
 // tell me who is playing
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
@@ -108,6 +108,7 @@ const makeTheBoard = () => {
     let newTile = new Tile(tile, tile.getBoundingClientRect());
     row7.push(newTile);
   }
+
   jsPhoneBook.push(row7);
   let row8 = [];
   for (let i = 56; i < 64; i++) {
@@ -117,21 +118,11 @@ const makeTheBoard = () => {
     row8.push(newTile);
   }
   jsPhoneBook.push(row8);
-  // let jsPhoneBook = [
-  //   [row1],
-  //   [row2],
-  //   [row3],
-  //   [row4],
-  //   [row5],
-  //   [row6],
-  //   [row7],
-  //   [row8]
-  // ];
 };
-console.log(jsPhoneBook);
 
 // RUN IT ALL
 makeTheBoard();
+// console.log(jsPhoneBook[0][0]);
 ///== from playground ==
 
 // Change Current Player Button
