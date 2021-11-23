@@ -171,4 +171,5 @@ makeTheBoard();
 
 //  FUNCTION TEST Zone   ////
 let testlocation = jsPhoneBook[7][1];
+console.log(testlocation.coords);
 llnCoords(testlocation);
