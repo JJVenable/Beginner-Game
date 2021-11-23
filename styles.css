@@ -25,9 +25,6 @@
   background-color: lightblue;
 }
 
-
-/* ===== untouched below === */
-
 .gameInfoBox, .headerInfoBox{
   display:flex;
   position: 0 auto;
@@ -40,13 +37,4 @@
 .scoreBoardBox {
   display:flex;
   width: 200px;
-}
-.resetBoardBox {
-  background-color: green;
-  display: flex;
-  justify-content: center;
-} 
-.currentTurnBox {
-  display: flex;
-  justify-content: left;
 }

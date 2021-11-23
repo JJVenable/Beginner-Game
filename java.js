@@ -16,28 +16,32 @@ class Tile {
 // neighbor Functions //
 function urnCoords(tile) {
   // coords is a list {0,1}
-  let x = this.tile.coords;
-  let y = this.tile.coords;
-  let urncoords = [x + 40, y + 40];
-  return urnCoords;
+  let x = tile.coords.x;
+  let y = tile.coords.y;
+  let urnCoordPlot = [x + 40, y - 40];
+  console.log(urnCoordPlot);
+  return urnCoordPlot;
 }
 function ulnCoords(tile) {
-  let x = this.tile.coords;
-  let y = this.tile.coords;
-  let unlCoords = [x - 40, y + 40];
-  return ulnCoords;
+  let x = tile.coords.x;
+  let y = tile.coords.y;
+  let ulnCoordPlot = [x - 40, y - 40];
+  console.log(ulnCoordPlot);
+  return ulnCoordPlot;
 }
 function lrnCoords(tile) {
-  let x = this.tile.coords;
-  let y = this.tile.coords;
-  let urncoords = [x + 40, y + 40];
-  return lrnCoords;
+  let x = coords.x;
+  let y = tile.coords.y;
+  let lrnCoordPlot = [x + 40, y + 40];
+  console.log(lrnCoordPlot);
+  return lrnCoordPlot;
 }
 function llnCoords(tile) {
-  let x = this.tile.coords;
-  let y = this.tile.coords;
-  let unlCoords = [x - 40, y - 40];
-  return llnCoords;
+  let x = tile.coords.x;
+  let y = tile.coords.y;
+  let llnCoordPlot = [x - 40, y + 40];
+  console.log(llnCoordPlot);
+  return llnCoordPlot;
 }
 
 ///
@@ -120,6 +124,9 @@ const makeTheBoard = () => {
   jsPhoneBook.push(row8);
 };
 
+// RUN IT ALL Below//
+makeTheBoard();
+
 // tell me who is playing //
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
@@ -166,10 +173,19 @@ function whenTileClicked(clickedTileEvent) {
   }
 }
 
-// RUN IT ALL Below//
-makeTheBoard();
-
 //  FUNCTION TEST Zone   ////
-let testlocation = jsPhoneBook[7][1];
-console.log(testlocation.coords);
-llnCoords(testlocation);
+// class Tile {
+//   constructor(tile, coords) {
+//     this.tile = tile;
+//     this.coords = coords;
+//   }
+// function urnCoords(tile) {
+//   // coords is a list {0,1}
+//   let horizontal = tile.coords.x;
+//   // let y = this.coords.second;
+//   // let urncoords = [x + 40, y + 40];
+//   // return urnCoords;
+//   console.log(horizontal);
+// }
+// console.log(jsPhoneBook[7][0].coords);
+ulnCoords(jsPhoneBook[4][4]);
