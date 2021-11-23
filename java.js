@@ -25,17 +25,19 @@ function ulnCoords(tile) {
   let x = this.tile.coords;
   let y = this.tile.coords;
   let unlCoords = [x - 40, y + 40];
+  return ulnCoords;
 }
 function lrnCoords(tile) {
   let x = this.tile.coords;
   let y = this.tile.coords;
   let urncoords = [x + 40, y + 40];
-  return urnCoords;
+  return lrnCoords;
 }
 function llnCoords(tile) {
   let x = this.tile.coords;
   let y = this.tile.coords;
   let unlCoords = [x - 40, y - 40];
+  return llnCoords;
 }
 
 ///
@@ -168,3 +170,5 @@ function whenTileClicked(clickedTileEvent) {
 makeTheBoard();
 
 //  FUNCTION TEST Zone   ////
+let testlocation = jsPhoneBook[7][1];
+llnCoords(testlocation);
