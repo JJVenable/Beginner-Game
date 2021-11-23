@@ -14,14 +14,29 @@ class Tile {
   }
 }
 // neighbor Functions //
-// figure out how to do a function to call for TOPLeft,TOPRright,BTMLleft,BTMRight
-// function urncoords(tile) {
-//   // coords is a list {0,1}
-//   let x = this.tile.coords;
-//   let y = this.tile.coords;
-//   let urncoords = [x + 40, y + 40];
-//   return urncoords;
-// }
+function urnCoords(tile) {
+  // coords is a list {0,1}
+  let x = this.tile.coords;
+  let y = this.tile.coords;
+  let urncoords = [x + 40, y + 40];
+  return urnCoords;
+}
+function ulnCoords(tile) {
+  let x = this.tile.coords;
+  let y = this.tile.coords;
+  let unlCoords = [x - 40, y + 40];
+}
+function lrnCoords(tile) {
+  let x = this.tile.coords;
+  let y = this.tile.coords;
+  let urncoords = [x + 40, y + 40];
+  return urnCoords;
+}
+function llnCoords(tile) {
+  let x = this.tile.coords;
+  let y = this.tile.coords;
+  let unlCoords = [x - 40, y - 40];
+}
 
 ///
 // needed for makeTheBoard  //
@@ -103,25 +118,15 @@ const makeTheBoard = () => {
   jsPhoneBook.push(row8);
 };
 
-// RUN IT ALL //
-makeTheBoard();
-
 // tell me who is playing //
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 
-// // Restart Game Button// broken @ merge
+// // Restart Game Button// broken @ merge. Just clear the board.
 document.getElementById('restartButton').addEventListener('click', function () {
   document
     .querySelectorAll('.innerTile')
-    .forEach((innerTile) => (innerTile.innerHTML = '')); //just clear board
-  // let testStarter = document.elementFromPoint(288.5, 312);
-  // document.elementFromPoint(328, 272);
-  // has to cycle through an array. One at a time. ugh.
-  testStarter.innerHTML = 'Work?';
-  document
-    .querySelectorAll('.blackStarterTile')
-    .forEach((blackStarterTile) => (blackStarterTile.innerHTML = 'B'));
+    .forEach((innerTile) => (innerTile.innerHTML = ''));
 });
 
 // Change Current Player Button //
@@ -136,20 +141,16 @@ function changePlayer() {
   document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 }
 
-// click listener for playble tiles
+// click listener for playble tiles //
 document
   .querySelectorAll('.dark')
   .forEach((clickableTile) =>
     clickableTile.addEventListener('click', whenTileClicked)
   );
 
-// CLICK FUNCTION //  when tile clicked
-// save for breaking
+// CLICK FUNCTION //
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
-  // am I targeting html or javascript element?
-  // urncoords = urncoords(clickedTile);
-  // console.log(urncoords);
   switch (player) {
     case 'RED':
       clickedTile.innerHTML = 'R';
@@ -163,24 +164,7 @@ function whenTileClicked(clickedTileEvent) {
   }
 }
 
-//  FUNCTION TEST Zone   ////
-// this is the bottom right most tile coords
-// {
-//   "x": 288.5,
-//   "y": 312,
-//   "width": 40,
-//   "height": 40,
-//   "top": 312,
-//   "right": 328.5,
-//   "bottom": 352,
-//   "left": 288.5
-// }
-// document.elementFromPoint(288.5, 312);
+// RUN IT ALL Below//
+makeTheBoard();
 
-// nest inside creator, or 2nd option, define starters through external function
-// function redStarters() {
-//   let testStarter = jsPhoneBook[3-7]
-//   testStarter.id = 'redStarterTile';
-//   testStarter.innerHTML = 'StartS';
-// }
-// redStarters();
+//  FUNCTION TEST Zone   ////

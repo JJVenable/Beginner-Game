@@ -30,7 +30,7 @@ Below is an image to jog your memory for what checkers is.
 
 ### ***Task List:***
 - [ x ] Submit pitch to GA Team
-- [ ] Get approval for project
+- [ x ] Get approval for project
 - [ ] Create project
     - Upload to GitHub
     - Deploy project on Surge
