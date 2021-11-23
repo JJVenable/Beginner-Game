@@ -2,7 +2,7 @@
 let player = 'RED';
 const gameBoard = document.getElementById('game-board');
 const boardTiles = [];
-
+const jsPhoneBook = [];
 // tell me who is playing
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
@@ -12,8 +12,10 @@ document.getElementById('restartButton').addEventListener('click', function () {
   // document.getElementByClass("innerTile").innerHTML = '';
   document
     .querySelectorAll('.innerTile')
-    .forEach((innerTile) => (innerTile.innerHTML = ''));
-  let testStarter = document.elementFromPoint(288.5, 312 & 328, 272);
+    .forEach((innerTile) => (innerTile.innerHTML = '')); //just clear board
+  let testStarter = document.elementFromPoint(288.5, 312);
+  // document.elementFromPoint(328, 272);
+  // has to cycle through an array. One at a time. ugh.
   testStarter.innerHTML = 'Work?';
   document
     .querySelectorAll('.blackStarterTile')
@@ -29,6 +31,16 @@ class Tile {
   }
 }
 
+function urncoords(tile) {
+  // coords is a list {0,1}
+  let x = tile.coords.first;
+  let y = tile.coords.second;
+
+  let urncoords = [x + 40, y + 40];
+
+  return urncoords;
+}
+
 ///
 // needed for makeTheBoard
 const placeNewTileDown = (className) => {
@@ -40,55 +52,83 @@ const placeNewTileDown = (className) => {
 
 /// make checkerboard colors
 const makeTheBoard = () => {
+  let row1 = [];
   for (let i = 0; i < 8; i++) {
     let className = i % 2 === 0 ? 'light' : 'dark';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    // push newTile into js phonebook
+    row1.push(newTile);
   }
+  jsPhoneBook.push(row1);
+  let row2 = [];
   for (let i = 8; i < 16; i++) {
     let className = i % 2 === 0 ? 'dark' : 'light';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row2.push(newTile);
   }
+  jsPhoneBook.push(row2);
+  let row3 = [];
   for (let i = 16; i < 24; i++) {
     let className = i % 2 === 0 ? 'light' : 'dark';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row3.push(newTile);
   }
+  jsPhoneBook.push(row3);
+  let row4 = [];
   for (let i = 24; i < 32; i++) {
     let className = i % 2 === 0 ? 'dark' : 'light';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row4.push(newTile);
   }
+  jsPhoneBook.push(row4);
+  let row5 = [];
   for (let i = 32; i < 40; i++) {
     let className = i % 2 === 0 ? 'light' : 'dark';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row5.push(newTile);
   }
+  jsPhoneBook.push(row5);
+  let row6 = [];
   for (let i = 40; i < 48; i++) {
     let className = i % 2 === 0 ? 'dark' : 'light';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row6.push(newTile);
   }
+  jsPhoneBook.push(row6);
+  let row7 = [];
   for (let i = 48; i < 56; i++) {
     let className = i % 2 === 0 ? 'light' : 'dark';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row7.push(newTile);
   }
+  jsPhoneBook.push(row7);
+  let row8 = [];
   for (let i = 56; i < 64; i++) {
     let className = i % 2 === 0 ? 'dark' : 'light';
     let tile = placeNewTileDown(className);
-    //console.log(tile.getBoundingClientRect()); // coordinates
     let newTile = new Tile(tile, tile.getBoundingClientRect());
+    row8.push(newTile);
   }
+  jsPhoneBook.push(row8);
+  // let jsPhoneBook = [
+  //   [row1],
+  //   [row2],
+  //   [row3],
+  //   [row4],
+  //   [row5],
+  //   [row6],
+  //   [row7],
+  //   [row8]
+  // ];
 };
+console.log(jsPhoneBook);
 
 // RUN IT ALL
 makeTheBoard();
@@ -117,10 +157,13 @@ document
 // save for breaking
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
+  // am I targeting html or javascript element?
+  // urncoords = urncoords(clickedTile);
   switch (player) {
     case 'RED':
       clickedTile.innerHTML = 'R';
       console.log(clickedTile.getBoundingClientRect());
+      console.log(clickedTile);
       break;
     case 'BLACK':
       clickedTile.innerHTML = 'B';
