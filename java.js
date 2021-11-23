@@ -19,9 +19,7 @@ class Tile {
 //   // coords is a list {0,1}
 //   let x = this.tile.coords;
 //   let y = this.tile.coords;
-
 //   let urncoords = [x + 40, y + 40];
-
 //   return urncoords;
 // }
 
@@ -117,7 +115,7 @@ document.getElementById('restartButton').addEventListener('click', function () {
   document
     .querySelectorAll('.innerTile')
     .forEach((innerTile) => (innerTile.innerHTML = '')); //just clear board
-  let testStarter = document.elementFromPoint(288.5, 312);
+  // let testStarter = document.elementFromPoint(288.5, 312);
   // document.elementFromPoint(328, 272);
   // has to cycle through an array. One at a time. ugh.
   testStarter.innerHTML = 'Work?';
