@@ -30,7 +30,7 @@ function ulnCoords(tile) {
   return ulnCoordPlot;
 }
 function lrnCoords(tile) {
-  let x = coords.x;
+  let x = tile.coords.x;
   let y = tile.coords.y;
   let lrnCoordPlot = [x + 40, y + 40];
   console.log(lrnCoordPlot);
@@ -188,4 +188,3 @@ function whenTileClicked(clickedTileEvent) {
 //   console.log(horizontal);
 // }
 // console.log(jsPhoneBook[7][0].coords);
-ulnCoords(jsPhoneBook[4][4]);
