@@ -1,48 +1,32 @@
-//Global variables
+//Global variables //
 let player = 'RED';
 const gameBoard = document.getElementById('game-board');
 const boardTiles = [];
 let jsPhoneBook = [];
-// tell me who is playing
-const currentPlayerTurn = () => `It's ${player}'s turn.`;
-document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
 
-// // Restart Game Button// broken @ merge
-document.getElementById('restartButton').addEventListener('click', function () {
-  // document.getElementByClass("innerTile").innerHTML = '';
-  document
-    .querySelectorAll('.innerTile')
-    .forEach((innerTile) => (innerTile.innerHTML = '')); //just clear board
-  let testStarter = document.elementFromPoint(288.5, 312);
-  // document.elementFromPoint(328, 272);
-  // has to cycle through an array. One at a time. ugh.
-  testStarter.innerHTML = 'Work?';
-  document
-    .querySelectorAll('.blackStarterTile')
-    .forEach((blackStarterTile) => (blackStarterTile.innerHTML = 'B'));
-});
 ///===== from playground ==
 
-// construct TILE
+// construct TILE  //
 class Tile {
   constructor(tile, coords) {
     this.tile = tile;
     this.coords = coords;
   }
 }
+// neighbor Functions //
+// figure out how to do a function to call for TOPLeft,TOPRright,BTMLleft,BTMRight
+// function urncoords(tile) {
+//   // coords is a list {0,1}
+//   let x = this.tile.coords;
+//   let y = this.tile.coords;
 
-function urncoords(tile) {
-  // coords is a list {0,1}
-  let x = tile.coords.first;
-  let y = tile.coords.second;
+//   let urncoords = [x + 40, y + 40];
 
-  let urncoords = [x + 40, y + 40];
-
-  return urncoords;
-}
+//   return urncoords;
+// }
 
 ///
-// needed for makeTheBoard
+// needed for makeTheBoard  //
 const placeNewTileDown = (className) => {
   let newTile = document.createElement('div');
   newTile.classList = `innerTile ${className}`;
@@ -50,7 +34,7 @@ const placeNewTileDown = (className) => {
   return newTile;
 };
 
-/// make checkerboard colors
+/// make checkerboard w/ colors //
 const makeTheBoard = () => {
   let row1 = [];
   for (let i = 0; i < 8; i++) {
@@ -117,21 +101,38 @@ const makeTheBoard = () => {
     let newTile = new Tile(tile, tile.getBoundingClientRect());
     row8.push(newTile);
   }
+
   jsPhoneBook.push(row8);
 };
 
-// RUN IT ALL
+// RUN IT ALL //
 makeTheBoard();
-// console.log(jsPhoneBook[0][0]);
-///== from playground ==
 
-// Change Current Player Button
+// tell me who is playing //
+const currentPlayerTurn = () => `It's ${player}'s turn.`;
+document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
+
+// // Restart Game Button// broken @ merge
+document.getElementById('restartButton').addEventListener('click', function () {
+  document
+    .querySelectorAll('.innerTile')
+    .forEach((innerTile) => (innerTile.innerHTML = '')); //just clear board
+  let testStarter = document.elementFromPoint(288.5, 312);
+  // document.elementFromPoint(328, 272);
+  // has to cycle through an array. One at a time. ugh.
+  testStarter.innerHTML = 'Work?';
+  document
+    .querySelectorAll('.blackStarterTile')
+    .forEach((blackStarterTile) => (blackStarterTile.innerHTML = 'B'));
+});
+
+// Change Current Player Button //
 document
   .getElementById('playerTurnButton')
   .addEventListener('click', function () {
     changePlayer();
   });
-// Change Player
+// Change Player //
 function changePlayer() {
   player = player === 'RED' ? 'BLACK' : 'RED';
   document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
@@ -144,12 +145,13 @@ document
     clickableTile.addEventListener('click', whenTileClicked)
   );
 
-// CLICK FUNCTION when tile clicked
+// CLICK FUNCTION //  when tile clicked
 // save for breaking
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
   // am I targeting html or javascript element?
   // urncoords = urncoords(clickedTile);
+  // console.log(urncoords);
   switch (player) {
     case 'RED':
       clickedTile.innerHTML = 'R';
@@ -163,8 +165,8 @@ function whenTileClicked(clickedTileEvent) {
   }
 }
 
-//  FUNCTION TEST Zone
-// this is the bottom right most tile
+//  FUNCTION TEST Zone   ////
+// this is the bottom right most tile coords
 // {
 //   "x": 288.5,
 //   "y": 312,
@@ -175,11 +177,11 @@ function whenTileClicked(clickedTileEvent) {
 //   "bottom": 352,
 //   "left": 288.5
 // }
+// document.elementFromPoint(288.5, 312);
 
-// console.log(document.elementFromPoint(288.5, 312));
-
+// nest inside creator, or 2nd option, define starters through external function
 // function redStarters() {
-//   let testStarter = document.elementFromPoint(288.5, 312);
+//   let testStarter = jsPhoneBook[3-7]
 //   testStarter.id = 'redStarterTile';
 //   testStarter.innerHTML = 'StartS';
 // }
