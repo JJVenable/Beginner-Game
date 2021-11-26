@@ -8,7 +8,8 @@
   width: 320px;
   border-style: solid;
   border-color: black;
-  margin: auto
+  margin: auto;
+  background-color: burlywood;
   }
 .innerTile {
   display: flex;
@@ -37,4 +38,16 @@
 .scoreBoardBox {
   display:flex;
   width: 200px;
+}
+.blackToken {
+    background-color:black;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+}
+.redToken {
+  background-color: red;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
 }

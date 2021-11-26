@@ -3,7 +3,6 @@ let player = 'RED';
 const gameBoard = document.getElementById('game-board');
 const boardTiles = [];
 let jsPhoneBook = [];
-
 // construct TILE  //
 class Tile {
   constructor(tile, coords, starter) {
@@ -146,30 +145,30 @@ document.getElementById('restartButton').addEventListener('click', function () {
 
 /// populate game board for start
 let populateGame = () => {
-  document.elementFromPoint(328.5, 47).innerHTML = 'B';
-  document.elementFromPoint(408.5, 47).innerHTML = 'B';
-  document.elementFromPoint(488.5, 47).innerHTML = 'B';
-  document.elementFromPoint(568.5, 47).innerHTML = 'B';
-  document.elementFromPoint(288.5, 87).innerHTML = 'B';
-  document.elementFromPoint(368.5, 87).innerHTML = 'B';
-  document.elementFromPoint(448.5, 87).innerHTML = 'B';
-  document.elementFromPoint(528.5, 87).innerHTML = 'B';
-  document.elementFromPoint(328.5, 127).innerHTML = 'B';
-  document.elementFromPoint(408.5, 127).innerHTML = 'B';
-  document.elementFromPoint(488.5, 127).innerHTML = 'B';
-  document.elementFromPoint(568.5, 127).innerHTML = 'B';
-  document.elementFromPoint(288.5, 247).innerHTML = 'R';
-  document.elementFromPoint(368.5, 247).innerHTML = 'R';
-  document.elementFromPoint(448.5, 247).innerHTML = 'R';
-  document.elementFromPoint(528.5, 247).innerHTML = 'R';
-  document.elementFromPoint(328.5, 287).innerHTML = 'R';
-  document.elementFromPoint(408.5, 287).innerHTML = 'R';
-  document.elementFromPoint(488.5, 287).innerHTML = 'R';
-  document.elementFromPoint(568.5, 287).innerHTML = 'R';
-  document.elementFromPoint(288.5, 327).innerHTML = 'R';
-  document.elementFromPoint(368.5, 327).innerHTML = 'R';
-  document.elementFromPoint(448.5, 327).innerHTML = 'R';
-  document.elementFromPoint(528.5, 327).innerHTML = 'R';
+  document.elementFromPoint(328.5, 47).classList.add('blackToken');
+  document.elementFromPoint(408.5, 47).classList.add('blackToken');
+  document.elementFromPoint(488.5, 47).classList.add('blackToken');
+  document.elementFromPoint(568.5, 47).classList.add('blackToken');
+  document.elementFromPoint(288.5, 87).classList.add('blackToken');
+  document.elementFromPoint(368.5, 87).classList.add('blackToken');
+  document.elementFromPoint(448.5, 87).classList.add('blackToken');
+  document.elementFromPoint(528.5, 87).classList.add('blackToken');
+  document.elementFromPoint(328.5, 127).classList.add('blackToken');
+  document.elementFromPoint(408.5, 127).classList.add('blackToken');
+  document.elementFromPoint(488.5, 127).classList.add('blackToken');
+  document.elementFromPoint(568.5, 127).classList.add('blackToken');
+  document.elementFromPoint(288.5, 247).classList.add('redToken');
+  document.elementFromPoint(368.5, 247).classList.add('redToken');
+  document.elementFromPoint(448.5, 247).classList.add('redToken');
+  document.elementFromPoint(528.5, 247).classList.add('redToken');
+  document.elementFromPoint(328.5, 287).classList.add('redToken');
+  document.elementFromPoint(408.5, 287).classList.add('redToken');
+  document.elementFromPoint(488.5, 287).classList.add('redToken');
+  document.elementFromPoint(568.5, 287).classList.add('redToken');
+  document.elementFromPoint(288.5, 327).classList.add('redToken');
+  document.elementFromPoint(368.5, 327).classList.add('redToken');
+  document.elementFromPoint(448.5, 327).classList.add('redToken');
+  document.elementFromPoint(528.5, 327).classList.add('redToken');
   // fix 145-153, cant tag "red and blue" need to target the Tile??
 };
 populateGame();
@@ -180,6 +179,25 @@ document
   .addEventListener('click', function () {
     changePlayer();
   });
+
+// Pick up Piece Button //
+let clickToggle = 0;
+document.getElementById('pickUpPiece').addEventListener('click', function () {
+  clickToggle++;
+  if (clickToggle % 2 == 1) {
+    changePlayer();
+    document.getElementById('turnReadout').innerHTML = '';
+    document.getElementById('instructionsReadout').innerHTML =
+      'Select man to pick up.';
+    document.getElementById('pickUpPiece').innerHTML = 'Done clearing pieces.';
+  } else {
+    document.getElementById('turnReadout').innerHTML = `It's ${player}'s turn.`;
+    document.getElementById('instructionsReadout').innerHTML =
+      'Select tile to move.';
+    document.getElementById('pickUpPiece').innerHTML = 'Pick up a Piece.';
+    changePlayer();
+  }
+});
 
 // Change Player //
 function changePlayer() {
@@ -199,13 +217,10 @@ function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
   switch (player) {
     case 'RED':
-      clickedTile.innerHTML = 'R';
-      console.log(clickedTile.getBoundingClientRect());
-      console.log(clickedTile);
+      clickedTile.classList.toggle('redToken');
       break;
     case 'BLACK':
-      clickedTile.innerHTML = 'B';
-      console.log(clickedTile.getBoundingClientRect());
+      clickedTile.classList.toggle('blackToken');
       break;
   }
 }
