@@ -3,6 +3,7 @@ let player = 'RED';
 const gameBoard = document.getElementById('game-board');
 const boardTiles = [];
 let jsPhoneBook = [];
+
 // construct TILE  //
 class Tile {
   constructor(tile, coords, starter) {
@@ -190,12 +191,14 @@ document.getElementById('pickUpPiece').addEventListener('click', function () {
     document.getElementById('instructionsReadout').innerHTML =
       'Select man to pick up.';
     document.getElementById('pickUpPiece').innerHTML = 'Done clearing pieces.';
+    console.log(player);
   } else {
     document.getElementById('turnReadout').innerHTML = `It's ${player}'s turn.`;
     document.getElementById('instructionsReadout').innerHTML =
       'Select tile to move.';
     document.getElementById('pickUpPiece').innerHTML = 'Pick up a Piece.';
     changePlayer();
+    console.log(player);
   }
 });
 
@@ -215,6 +218,7 @@ document
 // CLICK FUNCTION //
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
+
   switch (player) {
     case 'RED':
       clickedTile.classList.toggle('redToken');
