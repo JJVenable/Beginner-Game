@@ -1,10 +1,10 @@
-//Global variables //
+//Variable Storage //
 let player = 'RED';
 const gameBoard = document.getElementById('game-board');
 const boardTiles = [];
 let jsPhoneBook = [];
 
-// construct TILE  //
+// Construct TILE  //
 class Tile {
   constructor(tile, coords, starter) {
     this.tile = tile;
@@ -12,7 +12,7 @@ class Tile {
     this.starter = starter;
   }
 }
-// neighbor Functions //
+// Neighbor Functions //
 function urnCoords(tile) {
   // coords is a list {0,1}
   let x = tile.coords.x;
@@ -43,7 +43,7 @@ function llnCoords(tile) {
   return llnCoordPlot;
 }
 
-// needed for makeTheBoard  //
+// Needed for makeTheBoard  //
 const placeNewTileDown = (className) => {
   let newTile = document.createElement('div');
   newTile.classList = `innerTile ${className}`;
@@ -132,7 +132,7 @@ const makeTheBoard = () => {
   jsPhoneBook.push(row8);
 };
 
-// RUN IT ALL Below//
+// RUN IT Below//
 makeTheBoard();
 
 // tell me who is playing //
@@ -170,7 +170,6 @@ let populateGame = () => {
   document.elementFromPoint(368.5, 327).classList.add('redToken');
   document.elementFromPoint(448.5, 327).classList.add('redToken');
   document.elementFromPoint(528.5, 327).classList.add('redToken');
-  // fix 145-153, cant tag "red and blue" need to target the Tile??
 };
 populateGame();
 
@@ -219,7 +218,6 @@ document
 // CLICK FUNCTION //
 function whenTileClicked(clickedTileEvent) {
   const clickedTile = clickedTileEvent.target;
-
   switch (player) {
     case 'RED':
       clickedTile.classList.toggle('redToken');
@@ -230,7 +228,7 @@ function whenTileClicked(clickedTileEvent) {
   }
 }
 
-//  FUNCTION TEST Zone   ////
+//  Win Condition   ////
 function winCondition() {
   let redPieces = document.getElementsByClassName('redToken');
   let blackPieces = document.getElementsByClassName('blackToken');
