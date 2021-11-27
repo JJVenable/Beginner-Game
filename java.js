@@ -134,7 +134,7 @@ const makeTheBoard = () => {
 
 // RUN IT ALL Below//
 makeTheBoard();
-// populateGame();
+
 // tell me who is playing //
 const currentPlayerTurn = () => `It's ${player}'s turn.`;
 document.getElementById('turnReadout').innerHTML = currentPlayerTurn();
@@ -179,6 +179,7 @@ document
   .getElementById('playerTurnButton')
   .addEventListener('click', function () {
     changePlayer();
+    winCondition();
   });
 
 // Pick up Piece Button //
@@ -230,3 +231,19 @@ function whenTileClicked(clickedTileEvent) {
 }
 
 //  FUNCTION TEST Zone   ////
+function winCondition() {
+  let redPieces = document.getElementsByClassName('redToken');
+  let blackPieces = document.getElementsByClassName('blackToken');
+  console.log(redPieces);
+  let redRemaining = redPieces.length;
+  let blackRemaining = blackPieces.length;
+  console.log(redRemaining);
+  if (redRemaining < 5) {
+    alert('Black Won!');
+  } else if (blackRemaining < 5) {
+    alert('Red Won!');
+  } else {
+    console.log('Remove more pieces for a win condition.');
+  }
+}
+winCondition();
