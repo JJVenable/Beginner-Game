@@ -228,20 +228,20 @@ function whenTileClicked(clickedTileEvent) {
   }
 }
 
-//  Win Condition   ////
-// function winCondition() {
-//   let redPieces = document.getElementsByClassName('redToken');
-//   let blackPieces = document.getElementsByClassName('blackToken');
-//   console.log(redPieces);
-//   let redRemaining = redPieces.length;
-//   let blackRemaining = blackPieces.length;
-//   console.log(redRemaining);
-//   if (redRemaining < 5) {
-//     alert('Black Won!');
-//   } else if (blackRemaining < 5) {
-//     alert('Red Won!');
-//   } else {
-//     console.log('Remove more pieces for a win condition.');
-//   }
-// }
-// winCondition();
+// Win Condition   ////
+function winCondition() {
+  let redPieces = document.getElementsByClassName('redToken');
+  let blackPieces = document.getElementsByClassName('blackToken');
+  console.log(redPieces);
+  let redRemaining = redPieces.length;
+  let blackRemaining = blackPieces.length;
+  console.log(redRemaining);
+  if (redRemaining < 5) {
+    alert('Black Won!');
+  } else if (blackRemaining < 5) {
+    alert('Red Won!');
+  } else {
+    console.log('Remove more pieces for a win condition.');
+  }
+}
+winCondition();

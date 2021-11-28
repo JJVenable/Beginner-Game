@@ -3,14 +3,15 @@
 ## By: Joseph Venable
 [Trello Pitch](https://trello.com/b/8tSGq3QM/checkers-pitch) <br></br>
 [GitHub](https://github.com/JJVenable).
+[Repository](https://github.com/JJVenable/Beginner-Game) for this game.
 [Linkedin](https://www.linkedin.com/in/JJVenable/).
-[Venmo-Tip-Jar](https:://venmo.com/u/JJVenable).
 ***
 
 ### ***Description:***
 This is the first real program I've written for the world. <br>
 Hello World! <br>
-This is a basic copy of the CrackerBarrel chess we all played before Covid-19. It will be set up to accept player input from the same PC through mouse input, alternating players after each turn is complete.
+This was intended to be a copy of Checkers. It has morphed into another game. It will be set up to accept player input from the same PC through mouse input, alternating players after each turn is complete.
+This file accurately portrays my coding skill after one month of learning. 
 
 ### ***Technologies Used:***
 1. JavaScript
@@ -20,33 +21,27 @@ This is a basic copy of the CrackerBarrel chess we all played before Covid-19. I
 5. VSCode 
 
 ### ***Getting Started***
- After this pitch is accepted, the game will be deployed through Surge and the link will be placed: <br>
-[Here](WWW.SurgeLinkToBeMadeLater.future)
-
+ Below is a link to a hosted version of this file.<br>
+[Here](https://frightening-mountain.surge.sh/) <br>
+The game only properly loads when the window is ~850px by 500px. Next release will fix this bug.
 ### ***Screenshots:***
-Below is an image to jog your memory for what checkers is.
+Below is an image of the hosted game.
 
-![ImageOfCheckersBoard](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyouCk_c8QZmAWKEE2HFtUTcGwInJF5TcFKg&usqp=CAU)
+![ImageOfMyBoard](https://imgur.com/a/zGzTwYM)
 
 ### ***Task List:***
 - [ x ] Submit pitch to GA Team
 - [ x ] Get approval for project
-- [ ] Create project
+- [ x] Create project
     - Upload to GitHub
     - Deploy project on Surge
+- [ ] Turn it into Checkers 
 
 
 ### ***Credits***
-Creativity:  
-Sleep Deprivation,
-
-Technical Skills:
-
-[MarkDownGuide](https://ia.net/writer/support/general/markdown-guide)
-, 
-[CheatSheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
-,
-[MarkDownHomework](https://github.com/JJVenable/u1_hw_markdown)
+1. Nos Energy Drinks.
+2. Andre P- idea to use element from point.
+3. Jacob K- idea to use an array for humans to reference gameboard during coding.
 
 
 ---
