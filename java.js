@@ -228,7 +228,7 @@ function whenTileClicked(clickedTileEvent) {
   }
 }
 
-// Win Condition   ////
+// Win Condition & Run it  ////
 function winCondition() {
   let redPieces = document.getElementsByClassName('redToken');
   let blackPieces = document.getElementsByClassName('blackToken');
